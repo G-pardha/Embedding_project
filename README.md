@@ -2,6 +2,8 @@
 
 A semantic search engine built from scratch using **Sentence Transformers** and **ChromaDB** with a **Streamlit Web UI**. Unlike traditional keyword search, this engine understands the *meaning* behind your queries and finds the most relevant results.
 
+### 🌐 [Live Demo → embedding-project.streamlit.app](https://embedding-project.streamlit.app/)
+
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat&logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Web_UI-FF4B4B?style=flat&logo=streamlit)
 ![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_DB-orange?style=flat)
