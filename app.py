@@ -1,6 +1,8 @@
 import streamlit as st
 from sentence_transformers import SentenceTransformer
 import chromadb
+import json
+import os
 
 
 # ---- Page Config ----
@@ -19,7 +21,23 @@ def load_model():
 @st.cache_resource
 def load_collection():
     client = chromadb.PersistentClient(path="./Chroma_db")
-    return client.get_or_create_collection(name="Documents")
+    collection = client.get_or_create_collection(name="Documents")
+    
+    # Auto-ingest if collection is empty (needed for cloud deployment)
+    if collection.count() == 0:
+        dataset_path = os.path.join(os.path.dirname(__file__), "dataset.json")
+        with open(dataset_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        
+        documents = [item["text"] for item in data]
+        ids = [item["id"] for item in data]
+        metadatas = [{"title": item["title"], "category": item["category"]} for item in data]
+        
+        model = load_model()
+        embeddings = model.encode(documents, show_progress_bar=True).tolist()
+        collection.add(documents=documents, embeddings=embeddings, ids=ids, metadatas=metadatas)
+    
+    return collection
 
 model = load_model()
 collection = load_collection()
