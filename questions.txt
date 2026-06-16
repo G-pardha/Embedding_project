@@ -1,0 +1,214 @@
+# ============================================
+#   SAMPLE QUESTIONS TO TEST YOUR SEARCH ENGINE
+# ============================================
+# Copy-paste these into your search prompt!
+# Grouped by category so you can test different topics.
+
+
+# --- AI & Machine Learning ---
+what is machine learning
+how do neural networks work
+what is RAG in AI
+explain embeddings and vectors
+what are large language models like GPT
+how does computer vision work
+what is prompt engineering
+difference between deep learning and machine learning
+what is transfer learning
+how do AI agents work
+what is fine tuning a model
+how does semantic search work
+what is generative AI
+
+# --- Programming ---
+what is python used for
+explain object oriented programming
+how does git version control work
+what are APIs and REST
+best practices for clean code
+how to debug code
+what is async programming
+what are design patterns in software
+explain data structures like arrays and trees
+what is test driven development
+how does SQL work
+what is FastAPI
+
+# --- Web Development ---
+how does React work
+what is responsive web design
+explain GraphQL vs REST
+what are WebSockets used for
+how does Node.js work
+what is Next.js framework
+explain CSS flexbox and grid
+
+# --- Databases ---
+difference between SQL and NoSQL
+what is Redis used for
+how does database indexing work
+what is PostgreSQL
+explain MongoDB document database
+what is Elasticsearch
+
+# --- Cloud & DevOps ---
+what is Docker and containers
+how does Kubernetes work
+explain CI/CD pipelines
+what is serverless computing
+what is AWS cloud
+
+# --- Data Science ---
+how to clean data for analysis
+what is pandas library in python
+explain data visualization tools
+what is feature engineering
+how to evaluate ML models
+what is A/B testing
+
+# --- Health & Fitness ---
+how much sleep do I need
+best exercises without gym equipment
+how to manage anxiety
+benefits of yoga and meditation
+how to stay hydrated
+tips for healthy eating
+how to prevent back pain
+what are vaccines and how do they work
+importance of mental health
+
+# --- Finance & Money ---
+how to start investing
+what is compound interest
+how to create a budget
+explain cryptocurrency and bitcoin
+what is an emergency fund
+how does the stock market work
+tips for retirement planning
+what is an index fund
+
+# --- Productivity ---
+how to stop procrastinating
+best time management techniques
+how to build good habits
+explain deep work and focus
+best note taking methods
+how to set effective goals
+tips for a morning routine
+
+# --- Science ---
+what are black holes
+how does photosynthesis work
+explain quantum computing
+what is DNA and genetics
+how do earthquakes happen
+what is the human brain made of
+explain renewable energy sources
+how does nuclear energy work
+what is dark matter
+what are coral reefs
+
+# --- History ---
+who built the pyramids of egypt
+what was the industrial revolution
+explain world war 2
+what was the silk road
+history of ancient rome
+indian independence movement
+what was the french revolution
+what was the cold war
+ancient greek civilization
+
+# --- Sports ---
+most popular sport in the world
+history of cricket
+how was basketball invented
+what is Formula One racing
+explain the Olympic Games
+what is kabaddi
+famous chess players
+
+# --- Movies & Cinema ---
+best Christopher Nolan movies
+what is Bollywood
+explain the Marvel Cinematic Universe
+famous horror movies
+who is Steven Spielberg
+what is Tollywood Telugu cinema
+best animated movies
+Oscar award winning films
+Korean cinema and Parasite
+
+# --- Music ---
+history of hip hop music
+who are the Beatles
+what is K-pop
+explain Indian classical music
+history of jazz music
+best film composers
+
+# --- Food & Cooking ---
+how to brew coffee at different methods
+easy healthy breakfast ideas
+what is Indian cuisine known for
+how to make bread at home
+explain vegetarian cooking
+what is Japanese food culture
+best grilling techniques
+
+# --- Travel ---
+budget travel tips
+best places to visit in India
+backpacking in Southeast Asia
+solo travel safety tips
+best hiking trails in the world
+Japan travel guide
+
+# --- Psychology ---
+what is imposter syndrome
+explain cognitive biases
+growth mindset vs fixed mindset
+how does memory work
+what is emotional intelligence
+how to make better decisions
+
+# --- Business ---
+how to start a business
+what is product management
+explain digital marketing
+how to raise startup funding
+basics of project management
+
+# --- Environment ---
+how to reduce carbon footprint
+what is sustainable living
+explain electric vehicles
+ocean pollution and microplastics
+importance of biodiversity
+what is renewable energy
+
+# --- Animals ---
+endangered species in the world
+why are bees important
+facts about dinosaurs
+arctic wildlife and climate change
+
+# --- Technology ---
+how do smartphones work
+what is virtual reality
+explain 3D printing technology
+what are smart home devices
+impact of social media
+
+# --- Landmarks ---
+tell me about the Taj Mahal
+history of the Great Wall of China
+what is Machu Picchu
+facts about the Eiffel Tower
+
+# --- Random / Fun ---
+rainy day activity ideas
+what is origami
+how to start gardening
+best board games to play
+what is escape room
