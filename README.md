@@ -1,8 +1,9 @@
 # 🔍 Semantic Search Engine
 
-A semantic search engine built from scratch using **Sentence Transformers** and **ChromaDB**. Unlike traditional keyword search, this engine understands the *meaning* behind your queries and finds the most relevant results.
+A semantic search engine built from scratch using **Sentence Transformers** and **ChromaDB** with a **Streamlit Web UI**. Unlike traditional keyword search, this engine understands the *meaning* behind your queries and finds the most relevant results.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat&logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web_UI-FF4B4B?style=flat&logo=streamlit)
 ![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_DB-orange?style=flat)
 ![SentenceTransformers](https://img.shields.io/badge/Sentence_Transformers-AI-green?style=flat)
 
@@ -14,15 +15,15 @@ Your Query → AI Model → Vector (numbers) → Compare with stored vectors →
 
 ```
 ┌──────────────┐     ┌─────────────────┐     ┌──────────────┐
-│  "what is    │     │  SentenceTransf  │     │  ChromaDB    │
-│   machine    │────▶│  ormer Model     │────▶│  Vector DB   │
-│   learning"  │     │  (encode to vec) │     │  (find match)│
+│  "what is    │     │ SentenceTransf  │     │   ChromaDB   │
+│   machine    │────▶│  ormer Model    │────▶│  Vector DB   │
+│   learning"  │     │ (encode to vec) │     │ (find match) │
 └──────────────┘     └─────────────────┘     └──────┬───────┘
-                                                     │
-                                              ┌──────▼───────┐
-                                              │  Top 3 most  │
-                                              │  similar docs│
-                                              └──────────────┘
+                                                    │
+                                             ┌──────▼───────┐
+                                             │  Top results │
+                                             │  with scores │
+                                             └──────────────┘
 ```
 
 ### Key Concepts
@@ -30,26 +31,45 @@ Your Query → AI Model → Vector (numbers) → Compare with stored vectors →
 - **Vector Database**: Stores these vectors and finds similar ones using cosine similarity
 - **Semantic Search**: Matches by *meaning*, not exact keywords — so "coding" finds results about "programming"
 
+## ✨ Features
+
+- 🔍 **Semantic Search** — Search by meaning, not keywords
+- 🎨 **Streamlit Web UI** — Beautiful, interactive web interface
+- 📂 **Category Filtering** — Filter results by 30+ categories
+- 🎯 **Distance Threshold** — Adjustable relevance slider
+- 📊 **Stats Dashboard** — Shows document count, vector dimensions
+- 💡 **Sample Queries** — Click pre-built queries to test
+- 🟢🟡🟠 **Color-coded Results** — See match quality at a glance
+- 🚀 **Auto-Ingest** — App loads data automatically on first run
+
 ## 📁 Project Structure
 
 ```
 Embedding_project/
-├── ingest.py              # Load data into ChromaDB
-├── search.py              # Interactive search loop
+├── app.py                 # Streamlit web UI (main app)
+├── ingest.py              # CLI tool to load data into ChromaDB
+├── search.py              # CLI tool for terminal-based search
 ├── dataset.json           # 500 documents across 30+ categories
-├── dataset.txt            # Alternative text dataset (544 paragraphs)
 ├── questions.txt          # 200+ sample questions to test
 ├── requirements.txt       # Python dependencies
+├── LEARN_EMBEDDINGS.md    # Learn how embeddings work
 ├── PSEUDOCODE_CHEATSHEET.md  # Quick reference for the pipeline
+├── .gitignore             # Git ignore rules
 ├── Chroma_db/             # ChromaDB storage (auto-generated)
 └── venv/                  # Virtual environment (not pushed)
 ```
+
+| File | Purpose |
+|---|---|
+| `app.py` | 🌐 Streamlit web app with UI, filters, and auto-ingest |
+| `ingest.py` | 🔧 Dev tool — manually reload/update data |
+| `search.py` | 🔧 Dev tool — quick terminal search for testing |
 
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/Embedding_project.git
+git clone https://github.com/G-pardha/Embedding_project.git
 cd Embedding_project
 ```
 
@@ -69,35 +89,42 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Ingest data (store documents as vectors)
+### 4. Run the Streamlit app
 ```bash
-python ingest.py
+streamlit run app.py
 ```
-This will:
-- Load the AI model (`all-MiniLM-L6-V2`)
-- Read 500 documents from `dataset.json`
-- Convert them to embeddings (vectors)
-- Store them in ChromaDB with metadata (title, category)
 
-### 5. Search!
+The app will:
+- Download the AI model (`all-MiniLM-L6-V2`) on first run
+- Auto-ingest 500 documents from `dataset.json`
+- Open at **http://localhost:8501**
+
+> 💡 First launch takes ~2 min for model download + embedding. After that it's cached and instant!
+
+### Alternative: CLI Search
 ```bash
+# Ingest data manually
+python ingest.py
+
+# Search from terminal
 python search.py
 ```
-Type your query and get results! Type `quit` to exit.
 
 ## 💡 Example Usage
 
+### Web UI (Streamlit)
+- Type queries in the search bar
+- Adjust **number of results** and **distance threshold** in the sidebar
+- Filter by **category** (AI, Sports, Movies, Health, etc.)
+- Click **sample queries** in the sidebar to test
+
+### CLI Search
 ```
 search: how does machine learning work
   [AI] Machine Learning
   Machine learning is a branch of artificial intelligence that enables
   computers to learn from data without being explicitly programmed.
   distance: 0.4521
-
-  [AI] Deep Learning
-  Deep learning uses neural networks with many layers to model complex
-  patterns in data.
-  distance: 0.7832
 
 search: best places to visit in India
   [Travel] India Travel Guide
@@ -116,8 +143,8 @@ The `dataset.json` contains **500 documents** across **30+ categories**:
 
 | Category | Topics |
 |---|---|
-| 🤖 AI | Machine Learning, LLMs, RAG, Embeddings, GPT |
-| 💻 Programming | Python, JavaScript, Git, APIs, Design Patterns |
+| 🤖 AI | Machine Learning, LLMs, RAG, Embeddings, Agents |
+| 💻 Programming | Python, JavaScript, Rust, Git, APIs, Design Patterns |
 | 🌐 Web | React, Node.js, Next.js, WebSockets, CSS |
 | 🗄️ Database | SQL, MongoDB, Redis, PostgreSQL, Elasticsearch |
 | ☁️ Cloud | Docker, Kubernetes, AWS, CI/CD, Serverless |
@@ -136,67 +163,40 @@ The `dataset.json` contains **500 documents** across **30+ categories**:
 | 🌍 Environment | Climate, Recycling, Electric Vehicles |
 | 🐾 Animals | Marine Life, Endangered Species, Dinosaurs |
 | 🎨 Creative | Photography, Music Production, UX Design |
-| + more... | Education, Lifestyle, Technology, Culture |
-
-## 🔧 How the Code Works
-
-### `ingest.py` — Data Pipeline
-```python
-# 1. Load the AI model
-model = SentenceTransformer("all-MiniLM-L6-V2")
-
-# 2. Connect to ChromaDB
-client = chromadb.PersistentClient(path="./Chroma_db")
-
-# 3. Read documents from JSON
-data = json.load(open("dataset.json"))
-
-# 4. Convert text → vectors
-embeddings = model.encode(documents).tolist()
-
-# 5. Store in database
-collection.add(documents=documents, embeddings=embeddings, ids=ids, metadatas=metadatas)
-```
-
-### `search.py` — Query Loop
-```python
-# 1. User types a query
-query = input("search: ")
-
-# 2. Convert query to vector
-query_vec = model.encode(query).tolist()
-
-# 3. Find similar vectors in database
-results = collection.query(query_embeddings=[query_vec], n_results=3)
-
-# 4. Show results with distance < 1.0 (only relevant matches)
-for doc, distance, metadata in zip(...):
-    if distance < 1.0:
-        print(f"[{metadata['category']}] {metadata['title']}")
-```
+| + more... | Education, Lifestyle, Technology, Culture, Gaming |
 
 ## 📐 Understanding Distance
 
 | Distance | Meaning |
 |---|---|
-| `0.0 - 0.5` | 🟢 Very strong match |
+| `0.0 - 0.5` | 🟢 Excellent match |
 | `0.5 - 0.8` | 🟡 Good match |
 | `0.8 - 1.0` | 🟠 Weak but relevant |
 | `> 1.0` | 🔴 Not relevant (filtered out) |
 
 ## 🛠️ Tech Stack
 
+- **[Streamlit](https://streamlit.io/)** — Web UI framework for the search interface
 - **[Sentence Transformers](https://www.sbert.net/)** — AI model to convert text into embeddings
 - **[ChromaDB](https://www.trychroma.com/)** — Open-source vector database for similarity search
 - **[all-MiniLM-L6-V2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)** — Lightweight, fast embedding model (384 dimensions)
 - **Python 3.8+**
 
+## 🌐 Deployment
+
+### Streamlit Community Cloud (Free)
+1. Go to [share.streamlit.io](https://share.streamlit.io)
+2. Sign in with GitHub
+3. Select this repo → `app.py` → Deploy!
+
+The app auto-ingests data on first launch — no extra setup needed.
+
 ## 🤔 Limitations
 
-- This is a **document finder**, not a chatbot — it finds similar text, it doesn't "think"
-- Queries like *"suggest me a movie"* won't work because they need reasoning
+- This is a **document finder**, not a chatbot — it retrieves similar text, it doesn't generate answers
 - Results are only as good as the data in the database
 - The model works best with English text
+- First load takes ~2 min (model download + embedding creation)
 
 ## 📝 License
 
