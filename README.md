@@ -54,8 +54,6 @@ Embedding_project/
 ├── dataset.json           # 500 documents across 30+ categories
 ├── questions.txt          # 200+ sample questions to test
 ├── requirements.txt       # Python dependencies
-├── LEARN_EMBEDDINGS.md    # Learn how embeddings work
-├── PSEUDOCODE_CHEATSHEET.md  # Quick reference for the pipeline
 ├── .gitignore             # Git ignore rules
 ├── Chroma_db/             # ChromaDB storage (auto-generated)
 └── venv/                  # Virtual environment (not pushed)
